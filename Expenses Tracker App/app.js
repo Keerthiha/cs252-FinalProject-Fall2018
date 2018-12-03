@@ -60,6 +60,12 @@ app.get("/login", function(req, res)
 });
 
 
+app.get("/addExpenses", function(req,res){
+
+  res.render("addExpenses.ejs");
+
+});
+
 
 //Post Requests
 
@@ -71,7 +77,7 @@ app.post("/login", passport.authenticate("local",{
 
 } ),function(req,res){
 
-  res.redirect("/");  
+  res.redirect("/addExpenses");  
  
 });
 
@@ -89,7 +95,7 @@ app.post("/register", function(req,res){
         }
 
         passport.authenticate("local")(req, res, function(){
-           res.redirect("/");
+           res.redirect("/addExpenses");
         });
 
     });

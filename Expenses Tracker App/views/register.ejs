@@ -1,40 +1,86 @@
+<style>
+
+
+.form-heading { font-family: "Amatic SC", sans-serif ; color:#fff; font-size:50px;}
+
+.panel p { font-family: "Amatic SC", sans-serif ; color:#777777; font-size:30px; margin-bottom:30px; line-height:24px;}
+
+.register .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #7777;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.main-div {
+  font-family: "Amatic SC", sans-serif ;
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+  max-width: 38%;
+  padding: 50px 70px 70px 71px;
+}
+
+.register{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+}
+
+</style>
+
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Register</title>
-       
-        
-    </head>
-    
+<title>Register</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
 
-<body>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-<!--div class="bg"></div-->
+<html>
+  <head>
 
-<section class="container">
-    <div class="login">
-      <center><h1 style="color:white">Create an Account</h1></center>
-      <br>
-      <br>      
-    <center>
-        <form  action="/register" method= "POST">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        <input type="text" name="username" placeholder="username">
-        <br>
-        <br>
-        <input type="password" name="password" placeholder="password">
-        <br>
-        <br>
-        <button style="background-color:Snow ; font-size: 20px ; font-family: Papyrus">Sign up</button>
+  </head>
+<body id="Register Form">
+<div class="container">
+<h1 class="form-heading">Register Form</h1>
+<div class="register">
+<div class="main-div">
+    <div class="panel">
+   <p>Please enter your Username and Password</p>
+   </div>
+    <form id="Register" action="/register" method= "POST">
 
-      </form>
-  </center>
+        <div class="form-group">
 
-    </div>
-  </section>
+
+            <input type="text" class="form-control" name="username" placeholder="Username">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+
+        <button class="w3-btn w3-black" class="btn btn-primary" >Register</button>
+
+    </form>
+</div></div></div>
+
 
 </body>
 </html>
-
-

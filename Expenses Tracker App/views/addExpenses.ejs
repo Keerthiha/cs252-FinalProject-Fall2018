@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Expenses</title>
+       
+        
+    </head>
+    
+
+<body>
+
+<!--div class="bg"></div-->
+
+<section class="container">
+    <div class="addExpenses">
+
+      <center><h1 style="color:white">Add Expenses</h1></center>
+      <br>
+      <br>      
+    <center>
+        <form  action="/addExpenses" method= "POST">
+
+        <input type="text" name="name" placeholder="Name for Expense">
+        <br>
+        <br>
+        <select name="Type of Expense">
+            <option value="restaurant">Restaurant/Bars</option>
+            <option value="housing">Housing/Rent</option>
+            <option value="supermarkets">Groceries/Supermarkets</option>
+            <option value="general">General Merchandise</option>
+            <option value="misc">Miscellaneous</option>
+        </select>
+        <br>
+        <br>
+        <input type="date" name="type" placeholder="Date of Expense">
+        <br>
+        <br>
+        <input type="number" name="amount" placeholder="Cost of Expense">
+        <br>
+        <br>
+        <button style="background-color:Snow ; font-size: 20px ; font-family: Papyrus">Add Expense!</button>
+
+      </form>
+
+
+
+
+  </center>
+
+    </div>
+  </section>
+
+</body>
+</html>
+
+
