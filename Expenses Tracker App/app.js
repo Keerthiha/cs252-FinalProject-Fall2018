@@ -126,10 +126,86 @@ app.get("/showExpenses", isLoggedIn, function(req,res)
 });
 
 
+//Get About page
 app.get("/about", function(req, res)
 {
 	res.render("about.ejs");
 });
+
+
+//Get page with pie chart by category
+app.get("/categoryChart", function(req,res)
+{
+
+	user.find({username : req.user.username},function(err  , using)
+	{
+        if(err)
+        {
+         console.log("error") ;
+         console.log(err);
+        }
+        else
+        {
+            var expenseName = using[0].expenseName;
+       		var type = using[0].type;
+	   		var date = using[0].date;
+	   		var cost = using[0].cost;
+
+	   		console.log(date);
+
+	   		var restaurant = [0,0,0,0,0,0,0,0,0,0,0,0];
+	   		housing = [0,0,0,0,0,0,0,0,0,0,0,0];
+	   		supermarkets = [0,0,0,0,0,0,0,0,0,0,0,0];
+	   		general = [0,0,0,0,0,0,0,0,0,0,0,0];
+	   		misc = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+	   		for (var i = 0; i<date.length ; i++) 
+	   		{
+	   			var string = date[i];
+	   			var parts = string.split("-");
+
+	   			var month = parts[1];
+	   			month = month-1;
+
+	   			//console.log(month);
+
+	   			if(type[i] == "restaurant")
+	   			{
+	   				restaurant[month] = Number(restaurant[month]) + Number(cost[i]);
+	   			}
+ 				else if(type[i] == "housing")
+	  			{
+	   				housing[month] = Number(housing[month]) + Number(cost[i]);
+	   			}
+	   			else if(type[i] == "supermarkets")
+	   			{
+	   				supermarkets[month] = Number(supermarkets[month]) + Number(cost[i]);
+	   			}
+	   			else if(type[i] == "general")
+	   			{
+	   				general[month] = Number(general[month]) + Number(cost[i]);
+	   			}
+	   			else
+	   			{
+	   				misc[month] = Number(misc[month]) + Number(cost[i]);
+	   			}
+
+	   			//console.log(restaurant[month]);
+	   			//console.log(housing[month]);
+	   			//console.log(supermarkets[month]);
+	   			//console.log(general[month]);
+	   			//console.log(misc[month]);
+
+
+	   		}   		
+
+          res.render("categoryChart.ejs" , {restaurant: restaurant, housing:housing, supermarkets:supermarkets, general:general, misc:misc});
+        }
+
+     });
+  	
+});
+
 
 
 
@@ -188,10 +264,6 @@ app.post("/addExpenses", isLoggedIn, function(req,res)
 	date = req.body.date;
 	cost = req.body.cost;
 
-	//var expenses = {"expenseName" : expenseName , "type" : type , "date" : date , "cost" :  cost};
-
-
-	//console.log(expenses);
 
         user.update({username : req.user.username}  , {$push: {expenseName:expenseName, type:type, date:date, cost:cost}}, function(err,numberAffected , rawResponse){
             if(err)

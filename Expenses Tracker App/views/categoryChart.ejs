@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Category Charts</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <style type="text/css">
+          a
+          {
+            font-family : "Papyrus" ;
+            font-size: 20px ;
+          }
+        </style>
+    </head>
+    <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Expenses Tracker</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                <li><a href="/addExpenses">Record Expenses</a></li>
+                <li><a href="/showExpenses">Recorded Expenses</a></li>
+                  <% if(!currentUser){ %>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                     <% } else { %>
+                       <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                  <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+<style>
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+table {
+  text-align: left;
+  line-height: 40px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #000000;
+  width: 500px;
+  margin: 50px auto;
+  border-radius: .25rem;
+}
+thead tr:first-child {
+  background: #4169E1;
+  color: #fff;
+  border: none;
+  font-family : "Papyrus" ;
+}
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 20px;
+  font-family : "Papyrus" ;
+}
+thead tr:last-child th {
+  border-bottom: 3px solid #ddd;
+}
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+tbody tr:last-child td {
+  border: none;
+}
+tbody td {
+  border-bottom: 1px solid #ddd;
+  font-family : "Papyrus" ;
+  background: #FFFFFF ;
+}
+td:last-child {
+  text-align: left;
+  padding-left: 10px;
+  font-family : "Papyrus" ;
+  background: #FFFFFF ;
+}
+h1
+{
+  font-family: "Papyrus" ;
+  font-size: 50px ;
+}
+</style>
+
+
+<head>
+<title>Category</title>
+<center><h1>Pie Charts by Category</h1></center>
+</head>
+
+<body>
+
+
+
+<!-- Chart for January -->
+<% if(Number(restaurant[0]) > 0 || Number(housing[0]) > 0 || Number(supermarkets[0]) > 0 || Number(general[0]) > 0 || Number(misc[0]) >0){ %>
+<div id="piechart12" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[0]) %> ],
+  ['Housing',<%= Number(housing[0]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[0]) %> ],
+  ['General Merchandise', <%= Number(general[0]) %> ],
+  ['Miscellaneous', <%= Number(misc[0]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of January', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart12'));
+  chart.draw(data, options);
+}
+</script>
+ <% } %>
+
+
+
+
+<!-- Chart for February -->
+<% if(Number(restaurant[1]) > 0 || Number(housing[1]) > 0 || Number(supermarkets[1]) > 0 || Number(general[1]) > 0 || Number(misc[1]) >0){ %>
+<div id="piechart11" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[1]) %> ],
+  ['Housing',<%= Number(housing[1]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[1]) %> ],
+  ['General Merchandise', <%= Number(general[1]) %> ],
+  ['Miscellaneous', <%= Number(misc[1]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of February', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart11'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+<!-- Chart for March -->
+<% if(Number(restaurant[2]) > 0 || Number(housing[2]) > 0 || Number(supermarkets[2]) > 0 || Number(general[2]) > 0 || Number(misc[2]) >0){ %>
+<div id="piechart10" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[2]) %> ],
+  ['Housing',<%= Number(housing[2]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[2]) %> ],
+  ['General Merchandise', <%= Number(general[2]) %> ],
+  ['Miscellaneous', <%= Number(misc[2]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of March', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart10'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+<!-- Chart for April -->
+<% if(Number(restaurant[3]) > 0 || Number(housing[3]) > 0 || Number(supermarkets[3]) > 0 || Number(general[3]) > 0 || Number(misc[3]) >0){ %>
+<div id="piechart9" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[3]) %> ],
+  ['Housing',<%= Number(housing[3]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[3]) %> ],
+  ['General Merchandise', <%= Number(general[3]) %> ],
+  ['Miscellaneous', <%= Number(misc[3]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of April', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart9'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+<!-- Chart for May -->
+<% if(Number(restaurant[4]) > 0 || Number(housing[4]) > 0 || Number(supermarkets[4]) > 0 || Number(general[4]) > 0 || Number(misc[4]) >0){ %>
+<div id="piechart8" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[4]) %> ],
+  ['Housing',<%= Number(housing[4]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[4]) %> ],
+  ['General Merchandise', <%= Number(general[4]) %> ],
+  ['Miscellaneous', <%= Number(misc[4]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of May', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart8'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+
+<!-- Chart for June -->
+<% if(Number(restaurant[5]) > 0 || Number(housing[5]) > 0 || Number(supermarkets[5]) > 0 || Number(general[5]) > 0 || Number(misc[5]) >0){ %>
+<div id="piechart7" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[5]) %> ],
+  ['Housing',<%= Number(housing[5]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[5]) %> ],
+  ['General Merchandise', <%= Number(general[5]) %> ],
+  ['Miscellaneous', <%= Number(misc[5]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of June', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart7'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+<!-- Chart for July -->
+<% if(Number(restaurant[6]) > 0 || Number(housing[6]) > 0 || Number(supermarkets[6]) > 0 || Number(general[6]) > 0 || Number(misc[6]) >0){ %>
+<div id="piechart6" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[6]) %> ],
+  ['Housing',<%= Number(housing[6]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[6]) %> ],
+  ['General Merchandise', <%= Number(general[6]) %> ],
+  ['Miscellaneous', <%= Number(misc[6]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of July', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart6'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+
+<!-- Chart for August -->
+<% if(Number(restaurant[7]) > 0 || Number(housing[7]) > 0 || Number(supermarkets[7]) > 0 || Number(general[7]) > 0 || Number(misc[7]) >0){ %>
+<div id="piechart5" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[7]) %> ],
+  ['Housing',<%= Number(housing[7]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[7]) %> ],
+  ['General Merchandise', <%= Number(general[7]) %> ],
+  ['Miscellaneous', <%= Number(misc[7]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of August', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart5'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+<!-- Chart for September -->
+<% if(Number(restaurant[8]) > 0 || Number(housing[8]) > 0 || Number(supermarkets[8]) > 0 || Number(general[8]) > 0 || Number(misc[8]) >0){ %>
+<div id="piechart4" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[8]) %> ],
+  ['Housing',<%= Number(housing[8]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[8]) %> ],
+  ['General Merchandise', <%= Number(general[8]) %> ],
+  ['Miscellaneous', <%= Number(misc[8]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of September', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+
+
+<!-- Chart for October -->
+<% if(Number(restaurant[9]) > 0 || Number(housing[9]) > 0 || Number(supermarkets[9]) > 0 || Number(general[9]) > 0 || Number(misc[9]) >0){ %>
+<div id="piechart4" display = "block"></div>
+<div id="piechart3" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[9]) %> ],
+  ['Housing',<%= Number(housing[9]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[9]) %> ],
+  ['General Merchandise', <%= Number(general[9]) %> ],
+  ['Miscellaneous', <%= Number(misc[9]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of October', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+
+<!-- Chart for November -->
+<% if(Number(restaurant[10]) > 0 || Number(housing[10]) > 0 || Number(supermarkets[10]) > 0 || Number(general[10]) > 0 || Number(misc[10]) >0){ %>
+<div id="piechart2" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[10]) %> ],
+  ['Housing',<%= Number(housing[10]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[10]) %> ],
+  ['General Merchandise', <%= Number(general[10]) %> ],
+  ['Miscellaneous', <%= Number(misc[10]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of November', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+<!--Chart for December -->
+<% if(Number(restaurant[11]) > 0 || Number(housing[11]) > 0 || Number(supermarkets[11]) > 0 || Number(general[11]) > 0 || Number(misc[11]) >0){ %>
+<div id="piechart" display = "block"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Categories', 'Amount per Category'],
+  ['Restaurants/Bars', <%= Number(restaurant[11]) %> ],
+  ['Housing',<%= Number(housing[11]) %> ],
+  ['Supermarkets/Groceries', <%= Number(supermarkets[11]) %> ],
+  ['General Merchandise', <%= Number(general[11]) %> ],
+  ['Miscellaneous', <%= Number(misc[11]) %> ]
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Expenses of December', 'width':550, 'height':200};
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+<% } %>
+
+
+
+  
+   
+  
+
+</body>
+</html>
+
+
+

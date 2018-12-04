@@ -23,12 +23,15 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                 <li><a href="/saved">Recorded Expenses</a></li>
+                <li><a href="/addExpenses">Record Expenses</a></li>
                   <% if(!currentUser){ %>
                         <li><a href="/login">Login</a></li>
                         <li><a href="/register">Sign Up</a></li>
                      <% } else { %>
                        <li><a href="#">Signed In As <%= currentUser.username %></a></li>
                         <li><a href="/logout">Logout</a></li>
+                        <li><a href="/categoryChart">Charts</a></li>
+
                   <% } %>
                 </ul>
             </div>
@@ -48,7 +51,6 @@ body,html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     height: 100%;
     margin: 0;
-    background-image: url("https://st.depositphotos.com/2130737/4515/i/950/depositphotos_45155937-stock-photo-texture-of-white-rough-fabric.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
