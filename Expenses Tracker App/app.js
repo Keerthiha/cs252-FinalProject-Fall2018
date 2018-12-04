@@ -190,13 +190,7 @@ app.get("/categoryChart", function(req,res)
 	   				misc[month] = Number(misc[month]) + Number(cost[i]);
 	   			}
 
-	   			//console.log(restaurant[month]);
-	   			//console.log(housing[month]);
-	   			//console.log(supermarkets[month]);
-	   			//console.log(general[month]);
-	   			//console.log(misc[month]);
-
-
+	   			
 	   		}   		
 
           res.render("categoryChart.ejs" , {restaurant: restaurant, housing:housing, supermarkets:supermarkets, general:general, misc:misc});
@@ -302,7 +296,7 @@ function isLoggedIn(req,res,next){
 
 
 //Starting the server
-var port = process.env.PORT || 1234;
+var port = process.env.PORT || 7788;
 app.listen(port, function(){
     console.log("App has started!");
 });

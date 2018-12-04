@@ -1,49 +1,91 @@
+<style>
+body, html {height: 100% ;
+background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
+          }
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.menu {display: none}
+.bgimg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
+    min-height: 90%;
+}
+.expenses{ text-align:center;}
+
+.form-heading { font-family: "Amatic SC", sans-serif ; color:#fff; font-size:50px;}
+
+.panel p { font-family: "Amatic SC", sans-serif ; color:#777777; font-size:30px; margin-bottom:30px; line-height:24px;}
+
+.expenses .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #7777;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.main-div {
+  font-family: "Amatic SC", sans-serif ;
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+  max-width: 38%;
+  padding: 50px 70px 70px 71px;
+}
+
+.expenses{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+</style>
+
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Add Expenses</title>
-       
-        
-    </head>
+<title>Add_Expenses</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<html>
+  <head>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  </head>
     
+    
+<body id="Expenses Form">
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+    <a href="/showExpenses" class="w3-bar-item w3-button">Recorded Expenses</a>
+    <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+  </div>
 
-<body>
+<div class="main-div">
 
-  <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Expenses Tracker</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                <li><a href="/showExpenses">Recorded Expenses</a></li>
-                  <% if(!currentUser){ %>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign Up</a></li>
-                     <% } else { %>
-                       <li><a href="#">Signed In As <%= currentUser.username %></a></li>
-                        <li><a href="/logout">Logout</a></li>
-                  <% } %>
-                </ul>
-            </div>
+    <div class="panel">
+   </div>
+    <form id="Register" action="/addExpenses" method= "POST">
+
+        <div class="form-group">
+
+
+            <input type="text" class="form-control" name="name" placeholder="Name for the expense">
+
         </div>
-    </nav>
-
-<!--div class="bg"></div-->
-
-<section class="container">
-    <div class="addExpenses">
-
-      <center><h1 style="color:white">Add Expenses</h1></center>
-      <br>
-      <br>      
-    <center>
-        <form  action="/addExpenses" method= "POST">
-
-        <input type="text" name="expenseName" placeholder="Name for Expense">
-        <br>
-        <br>
+        
+    <div class="form-group">
+        
         <select name="type">
             <option value="restaurant">Restaurant/Bars</option>
             <option value="housing">Housing/Rent</option>
@@ -51,29 +93,23 @@
             <option value="general">General Merchandise</option>
             <option value="misc">Miscellaneous</option>
         </select>
-        <br>
-        <br>
-        <input type="date" name="date" placeholder="Date of Expense">
-        <br>
-        <br>
-        <input type="number" name="cost" placeholder="Cost of Expense">
-        <br>
-        <br>
         
-        <button style="background-color:Snow ; font-size: 20px ; font-family: Papyrus">Add Expense!</button>
+        </div>
+        <div class="form-group">
 
+            <input type="date" class="form-control" name="date" placeholder="Date of the  expense">
+        </div>
+        
+        <div class="form-group">
 
-      </form>
+            <input type="number" class="form-control" name="amount" placeholder="Cost of Expense">
+        </div>
 
+        <button class="w3-btn w3-black" class="btn btn-primary" >Add Expense</button>
 
+    </form>
+</div></div></div>
+</div>
 
-
-  </center>
-
-    </div>
-  </section>
 
 </body>
-</html>
-
-

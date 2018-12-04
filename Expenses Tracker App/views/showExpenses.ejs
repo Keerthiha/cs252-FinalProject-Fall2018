@@ -9,7 +9,7 @@
         <style type="text/css">
           a
           {
-            font-family : "Papyrus" ;
+            font-family : "Marker Felt", fantasy; ;
             font-size: 20px ;
           }
         </style>
@@ -18,20 +18,18 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Expenses Tracker</a>
+                <a class="navbar-brand" style="font-family:Marker Felt, fantasy;" href="/">Expenses Tracker</a>
             </div>
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" style="font-family:Marker Felt, fantasy;">
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="/saved">Recorded Expenses</a></li>
-                <li><a href="/addExpenses">Record Expenses</a></li>
+                <li><a style="font-family:Marker Felt, fantasy;" href="/addExpenses">Record an Expense</a></li>
                   <% if(!currentUser){ %>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign Up</a></li>
+                        <li><a style="font-family:Marker Felt, fantasy;" href="/login">Login</a></li>
+                        <li><a style="font-family:Marker Felt, fantasy;" href="/register">Sign Up</a></li>
                      <% } else { %>
-                       <li><a href="#">Signed In As <%= currentUser.username %></a></li>
-                        <li><a href="/logout">Logout</a></li>
-                        <li><a href="/categoryChart">Charts</a></li>
-
+                       <li><a  style="font-family:Marker Felt, fantasy;" href="#">Signed In As <%= currentUser.username %></a></li>
+                        <li><a style="font-family:Marker Felt, fantasy;" href="/logout">Logout</a></li>
+                        <li><a style="font-family:Marker Felt, fantasy;" href="/categoryChart">Charts</a></li>
                   <% } %>
                 </ul>
             </div>
@@ -45,12 +43,14 @@
 {
   margin: 0;
   padding: 0;
+  font-family: "Marker Felt", fantasy;
   box-sizing: border-box;
 }
 body,html {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Marker Felt", fantasy;
     height: 100%;
     margin: 0;
+    background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); 
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -63,42 +63,46 @@ table {
   width: 500px;
   margin: 50px auto;
   border-radius: .25rem;
+  font-family: "Marker Felt", fantasy;
 }
 thead tr:first-child {
-  background: #4169E1;
+  background: #000000;
   color: #fff;
   border: none;
-  font-family : "Papyrus" ;
+  font-family: "Marker Felt", fantasy;
 }
 th:first-child,
 td:first-child {
   padding: 0 15px 0 20px;
-  font-family : "Papyrus" ;
+  font-family: "Marker Felt", fantasy;
 }
 thead tr:last-child th {
   border-bottom: 3px solid #ddd;
+  font-family: "Marker Felt", fantasy;
 }
 tbody tr:hover {
   background-color: #f2f2f2;
   cursor: default;
+  font-family: "Marker Felt", fantasy;
 }
 tbody tr:last-child td {
   border: none;
 }
 tbody td {
   border-bottom: 1px solid #ddd;
-  font-family : "Papyrus" ;
   background: #FFFFFF ;
+  font-family: "Marker Felt", fantasy;
 }
 td:last-child {
   text-align: left;
   padding-left: 10px;
-  font-family : "Papyrus" ;
+  font-family : "cursive" ;
   background: #FFFFFF ;
+  font-family: "Marker Felt", fantasy;
 }
 h1
 {
-  font-family: "Papyrus" ;
+font-family: "Marker Felt", fantasy;
   font-size: 50px ;
 }
 </style>
@@ -135,6 +139,3 @@ h1
 
 </body>
 </html>
-
-
-
