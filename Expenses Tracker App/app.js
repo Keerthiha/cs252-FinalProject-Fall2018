@@ -1,3 +1,4 @@
+//Requires
 var express = require("express");
 var passport = require("passport");
 var localStrategy = require("passport-local");
@@ -10,8 +11,8 @@ mongoose.connect("mongodb://lkannan:CSProjectFall2018!@ds145019.mlab.com:45019/c
 var passportLocalMongoose = require("passport-local-mongoose");
 var app = express();
 
-//Uses
 
+//Uses
 app.use(require("express-session")({
     secret: "i love dogs!",
     resave: false,
@@ -38,6 +39,8 @@ app.use(function(req,res,next){
 
 //Get Requests
 
+
+//Get Home Page
 app.get("/", function(req,res){
 
   res.render("home.ejs", {currentUser: req.user});
@@ -47,24 +50,53 @@ app.get("/", function(req,res){
 var path;
 
 
-
+//Get Sign up Page
 app.get("/register", function(req, res)
 {
 	res.render("register.ejs");
 });
 
 
+//Get Login Page
 app.get("/login", function(req, res)
 {
 	res.render("login.ejs");
 });
 
 
+//Get Add Expenses Page
 app.get("/addExpenses", function(req,res){
 
   res.render("addExpenses.ejs");
 
 });
+
+
+//Get Show Expenses page
+app.get("/showExpenses", isLoggedIn, function(req,res)
+{
+
+  user.find({username : req.user.username},function(err  , person)
+  {
+     if(err)
+     {
+        console.log("Error") ;
+     }
+     else
+     {
+                 
+       var expenses = person[0].expenses;
+
+       res.render("showExpenses.ejs" , {expenses : expenses}) ;
+            
+    }
+
+  });
+
+});
+
+
+
 
 
 //Post Requests
@@ -83,7 +115,6 @@ app.post("/login", passport.authenticate("local",{
 
 
 //Register Post Route
-
 app.post("/register", function(req,res){
 
     user.register(new user({username: req.body.username}), req.body.password, function(err, user)
@@ -98,16 +129,70 @@ app.post("/register", function(req,res){
            res.redirect("/addExpenses");
         });
 
-    });
+    }); 
 
 
 });
 
 
 
+//Add expenses Post Route
+var expenseName;
+var type;
+var date;
+var cost;
+var expenseString;
+
+app.post("/addExpenses", isLoggedIn, function(req,res)
+{
+
+	expenseName = req.body.name;
+	type = req.body.type;
+	date = req.body.date;
+	cost = req.body.amount;
+
+
+	console.log(req.body);
+
+	expenseString = expenseName + type + date + cost;
+
+	console.log(expenseString);
 
 
 
+        user.update({username : req.user.username}  , {$push: {expenses  : expenseName}}, function(err,numberAffected , rawResponse){
+            if(err)
+            {
+                console.error("error!") ; 
+            }
+
+        }) ;
+
+
+        res.redirect("/showExpenses");
+       
+
+}) ;
+
+
+
+
+
+//Checking if user is logged in
+function isLoggedIn(req,res,next){
+
+    if(req.isAuthenticated()){
+        return next(); 
+    }
+
+    res.render("login.ejs");
+
+}
+
+
+
+
+//Starting the server
 var port = process.env.PORT || 1234;
 app.listen(port, function(){
     console.log("App has started!");
