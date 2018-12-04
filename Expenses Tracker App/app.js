@@ -90,7 +90,10 @@ app.get("/logout", function(req,res)
 app.get("/showExpenses", isLoggedIn, function(req,res)
 {
 
-  user.find({username : req.user.username},function(err  , person)
+
+	console.log("in show");
+
+  user.find({username : req.user.username},function(err  , using)
   {
      if(err)
      {
@@ -98,10 +101,23 @@ app.get("/showExpenses", isLoggedIn, function(req,res)
      }
      else
      {
-                 
-       var expenses = person[0].expenses;
+        
+        console.log(using[0]);
 
-       res.render("showExpenses.ejs" , {expenses : expenses}) ;
+       var expenseName = using[0].expenseName;
+       var type = using[0].type;
+	   var date = using[0].date;
+	   var cost = using[0].cost;
+
+	   console.log(expenseName);
+	   console.log(type);
+	   console.log(date);
+	   console.log(cost);
+
+
+	//expenses = {"expenseName":expenseName , "type":type , "date":date , "cost":cost};
+
+       res.render("showExpenses.ejs" , {expenseName: expenseName, type:type, date:date, cost:cost}) ;
             
     }
 
@@ -162,34 +178,34 @@ var expenseName;
 var type;
 var date;
 var cost;
-var expenseString;
+var expenses;
 
 app.post("/addExpenses", isLoggedIn, function(req,res)
 {
 
-	expenseName = req.body.name;
+	expenseName = req.body.expenseName;
 	type = req.body.type;
 	date = req.body.date;
-	cost = req.body.amount;
+	cost = req.body.cost;
+
+	//var expenses = {"expenseName" : expenseName , "type" : type , "date" : date , "cost" :  cost};
 
 
-	console.log(req.body);
+	//console.log(expenses);
 
-	expenseString = expenseName + type + date + cost;
-
-	console.log(expenseString);
-
-
-
-        user.update({username : req.user.username}  , {$push: {expenses  : expenseName}}, function(err,numberAffected , rawResponse){
+        user.update({username : req.user.username}  , {$push: {expenseName:expenseName, type:type, date:date, cost:cost}}, function(err,numberAffected , rawResponse){
             if(err)
             {
-                console.error("error!") ; 
+                console.error("error!") ;
+                console.error(err) ;
+
             }
 
         }) ;
 
 
+
+	console.log("going to redirect");
         res.redirect("/showExpenses");
        
 
