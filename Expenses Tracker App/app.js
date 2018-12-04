@@ -110,6 +110,13 @@ app.get("/showExpenses", isLoggedIn, function(req,res)
 });
 
 
+app.get("/about", function(req, res)
+{
+	res.render("about.ejs");
+});
+
+
+
 
 
 
