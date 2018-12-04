@@ -13,7 +13,8 @@ var app = express();
 
 
 //Uses
-app.use(require("express-session")({
+app.use(require("express-session")(
+{
     secret: "i love dogs!",
     resave: false,
     saveUninitialized: false
@@ -29,7 +30,8 @@ passport.use(new localStrategy(user.authenticate()));
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 
-app.use(function(req,res,next){
+app.use(function(req,res,next)
+{
     CURR = req.user;
     res.locals.currentUser = req.user;
     next();
@@ -41,7 +43,8 @@ app.use(function(req,res,next){
 
 
 //Get Home Page
-app.get("/", function(req,res){
+app.get("/", function(req,res)
+{
 
   res.render("home.ejs", {currentUser: req.user});
 
@@ -65,9 +68,20 @@ app.get("/login", function(req, res)
 
 
 //Get Add Expenses Page
-app.get("/addExpenses", function(req,res){
+app.get("/addExpenses", function(req,res)
+{
 
   res.render("addExpenses.ejs");
+
+});
+
+
+//Logout
+app.get("/logout", function(req,res)
+{
+
+    req.logout();
+    res.redirect("/");
 
 });
 
