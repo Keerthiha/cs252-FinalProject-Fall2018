@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Month Chart</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <style type="text/css">
+          a
+          {
+            font-family : "Papyrus" ;
+            font-size: 20px ;
+          }
+        </style>
+    </head>
+    <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Expenses Tracker</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                <li><a style="font-family:Marker Felt, fantasy;" href="/addExpenses">Record Expenses</a></li>
+                <li><a style="font-family:Marker Felt, fantasy;" href="/showExpenses">Recorded Expenses</a></li>
+                <li><a style="font-family:Marker Felt, fantasy;" href="/categoryChart">Category Charts</a></li>
+                  <% if(!currentUser){ %>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                     <% } else { %>
+                       <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                  <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+<style>
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+table {
+  text-align: left;
+  line-height: 40px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #000000;
+  width: 500px;
+  margin: 50px auto;
+  border-radius: .25rem;
+}
+thead tr:first-child {
+  background: #4169E1;
+  color: #fff;
+  border: none;
+  font-family : "Papyrus" ;
+}
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 20px;
+  font-family : "Papyrus" ;
+}
+thead tr:last-child th {
+  border-bottom: 3px solid #ddd;
+}
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+tbody tr:last-child td {
+  border: none;
+}
+tbody td {
+  border-bottom: 1px solid #ddd;
+  font-family : "Papyrus" ;
+  background: #FFFFFF ;
+}
+td:last-child {
+  text-align: left;
+  padding-left: 10px;
+  font-family : "Papyrus" ;
+  background: #FFFFFF ;
+}
+h1
+{
+  font-family: "Papyrus" ;
+  font-size: 50px ;
+}
+</style>
+
+
+<head>
+<title>Category</title>
+<center><h1>Monthly Expenditure</h1></center>
+</head>
+
+<body>
+
+
+
+
+<!--Chart for Months -->
+
+<div id="linegraph"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+
+<%= console.log("Month ")%>
+<%= console.log(total[11])%>
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Months', 'Amount Spent'],
+  ['January', <%= Number(total[0]) %> ],
+  ['February',<%= Number(total[1]) %> ],
+  ['March', <%= Number(total[2]) %> ],
+  ['April', <%= Number(total[3]) %> ],
+  ['May', <%= Number(total[4]) %> ],
+  ['June', <%= Number(total[5]) %> ],
+  ['July', <%= Number(total[6]) %> ],
+  ['August', <%= Number(total[7]) %> ],
+  ['September', <%= Number(total[8]) %> ],
+  ['October', <%= Number(total[9]) %> ],
+  ['November', <%= Number(total[10]) %> ],
+  ['December', <%= Number(total[11]) %> ]
+
+]);
+  // Optional; add a title and set the width and height of the chart
+  var options = 
+  {
+    title:'Expenses throughout the year', 
+    width: 900,
+    height: 500,
+    hAxis: 
+    {
+      title: 'Months'
+    },
+    vAxis: 
+    {
+      title: 'Amount Spent',
+      ticks: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000]
+    },
+    legend: { 'position': 'bottom' }
+  };
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.LineChart(document.getElementById('linegraph'));
+  chart.draw(data, options);
+}
+</script>
+
+
+
+
+  
+   
+  
+
+</body>
+</html>
+
+
+

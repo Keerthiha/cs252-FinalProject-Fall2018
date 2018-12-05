@@ -2,14 +2,14 @@
 <html>
 
     <head>
-        <title>Category Charts</title>
+        <title>Charts</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
         <style type="text/css">
           a
           {
-            font-family : "Papyrus" ;
+            font-family : "Marker Felt", fantasy; ;
             font-size: 20px ;
           }
         </style>
@@ -18,23 +18,25 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Expenses Tracker</a>
+                <a class="navbar-brand" style="font-family:Marker Felt, fantasy;" href="/">Expenses Tracker</a>
             </div>
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" style="font-family:Marker Felt, fantasy;">
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="/addExpenses">Record Expenses</a></li>
-                <li><a href="/showExpenses">Recorded Expenses</a></li>
+                <li><a style="font-family:Marker Felt, fantasy;" href="/addExpenses">Record an Expense</a></li>
+                <li><a style="font-family:Marker Felt, fantasy;" href="/monthChart">Monthly Chart</a></li>
                   <% if(!currentUser){ %>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign Up</a></li>
+                        <li><a style="font-family:Marker Felt, fantasy;" href="/login">Login</a></li>
+                        <li><a style="font-family:Marker Felt, fantasy;" href="/register">Sign Up</a></li>
                      <% } else { %>
-                       <li><a href="#">Signed In As <%= currentUser.username %></a></li>
-                        <li><a href="/logout">Logout</a></li>
+                       <li><a  style="font-family:Marker Felt, fantasy;" href="#">Signed In As <%= currentUser.username %></a></li>
+                        <li><a style="font-family:Marker Felt, fantasy;" href="/logout">Logout</a></li>
+                        <li><a style="font-family:Marker Felt, fantasy;" href="/categoryChart">Charts</a></li>
                   <% } %>
                 </ul>
             </div>
         </div>
     </nav>
+
 
 
 
@@ -47,6 +49,7 @@
 }
 body,html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); 
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
@@ -99,12 +102,26 @@ h1
   font-family: "Papyrus" ;
   font-size: 50px ;
 }
+
+.grid-container {
+  display: grid ;
+  grid-template-columns: auto auto ;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
 </style>
+
+
 
 
 <head>
 <title>Category</title>
-<center><h1>Pie Charts by Category</h1></center>
+<center><h1 style="font-family:Marker Felt, fantasy ; ">Pie Charts by Category</h1></center>
 </head>
 
 <body>
@@ -118,10 +135,12 @@ h1
   }
 </style>
 
+<div class="grid-container">
+
 
 <!-- Chart for January -->
 <% if(Number(restaurant[0]) > 0 || Number(housing[0]) > 0 || Number(supermarkets[0]) > 0 || Number(general[0]) > 0 || Number(misc[0]) >0){ %>
-<div id="piechart12" class = "center"></div>
+<div id="piechart12" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -147,11 +166,9 @@ function drawChart() {
  <% } %>
 
 
-
-
 <!-- Chart for February -->
 <% if(Number(restaurant[1]) > 0 || Number(housing[1]) > 0 || Number(supermarkets[1]) > 0 || Number(general[1]) > 0 || Number(misc[1]) >0){ %>
-<div id="piechart11" class = "center"></div>
+<div id="piechart11" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -179,7 +196,7 @@ function drawChart() {
 
 <!-- Chart for March -->
 <% if(Number(restaurant[2]) > 0 || Number(housing[2]) > 0 || Number(supermarkets[2]) > 0 || Number(general[2]) > 0 || Number(misc[2]) >0){ %>
-<div id="piechart10" class = "center"></div>
+<div id="piechart10" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -207,7 +224,7 @@ function drawChart() {
 
 <!-- Chart for April -->
 <% if(Number(restaurant[3]) > 0 || Number(housing[3]) > 0 || Number(supermarkets[3]) > 0 || Number(general[3]) > 0 || Number(misc[3]) >0){ %>
-<div id="piechart9" class = "center"></div>
+<div id="piechart9" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -235,7 +252,7 @@ function drawChart() {
 
 <!-- Chart for May -->
 <% if(Number(restaurant[4]) > 0 || Number(housing[4]) > 0 || Number(supermarkets[4]) > 0 || Number(general[4]) > 0 || Number(misc[4]) >0){ %>
-<div id="piechart8" class = "center"></div>
+<div id="piechart8" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -264,7 +281,7 @@ function drawChart() {
 
 <!-- Chart for June -->
 <% if(Number(restaurant[5]) > 0 || Number(housing[5]) > 0 || Number(supermarkets[5]) > 0 || Number(general[5]) > 0 || Number(misc[5]) >0){ %>
-<div id="piechart7" class = "center"></div>
+<div id="piechart7" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -292,7 +309,7 @@ function drawChart() {
 
 <!-- Chart for July -->
 <% if(Number(restaurant[6]) > 0 || Number(housing[6]) > 0 || Number(supermarkets[6]) > 0 || Number(general[6]) > 0 || Number(misc[6]) >0){ %>
-<div id="piechart6" class = "center"></div>
+<div id="piechart6" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -321,7 +338,7 @@ function drawChart() {
 
 <!-- Chart for August -->
 <% if(Number(restaurant[7]) > 0 || Number(housing[7]) > 0 || Number(supermarkets[7]) > 0 || Number(general[7]) > 0 || Number(misc[7]) >0){ %>
-<div id="piechart5" class = "center"></div>
+<div id="piechart5" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -349,7 +366,7 @@ function drawChart() {
 
 <!-- Chart for September -->
 <% if(Number(restaurant[8]) > 0 || Number(housing[8]) > 0 || Number(supermarkets[8]) > 0 || Number(general[8]) > 0 || Number(misc[8]) >0){ %>
-<div id="piechart4" class = "center"></div>
+<div id="piechart4" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -379,7 +396,7 @@ function drawChart() {
 
 <!-- Chart for October -->
 <% if(Number(restaurant[9]) > 0 || Number(housing[9]) > 0 || Number(supermarkets[9]) > 0 || Number(general[9]) > 0 || Number(misc[9]) >0){ %>
-<div id="piechart3" class = "center"></div>
+<div id="piechart3" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -408,7 +425,7 @@ function drawChart() {
 
 <!-- Chart for November -->
 <% if(Number(restaurant[10]) > 0 || Number(housing[10]) > 0 || Number(supermarkets[10]) > 0 || Number(general[10]) > 0 || Number(misc[10]) >0){ %>
-<div id="piechart2" class = "center"></div>
+<div id="piechart2" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -436,7 +453,7 @@ function drawChart() {
 
 <!--Chart for December -->
 <% if(Number(restaurant[11]) > 0 || Number(housing[11]) > 0 || Number(supermarkets[11]) > 0 || Number(general[11]) > 0 || Number(misc[11]) >0){ %>
-<div id="piechart" class = "center"></div>
+<div id="piechart" class="grid-item" ></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 // Load google charts
@@ -463,12 +480,11 @@ function drawChart() {
 
 
 
-  
+</div>
    
   
 
 </body>
 </html>
-
 
 

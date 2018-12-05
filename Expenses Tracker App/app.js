@@ -158,6 +158,7 @@ app.get("/categoryChart", function(req,res)
 	   		supermarkets = [0,0,0,0,0,0,0,0,0,0,0,0];
 	   		general = [0,0,0,0,0,0,0,0,0,0,0,0];
 	   		misc = [0,0,0,0,0,0,0,0,0,0,0,0];
+	   		
 
 	   		for (var i = 0; i<date.length ; i++) 
 	   		{
@@ -191,7 +192,9 @@ app.get("/categoryChart", function(req,res)
 	   			}
 
 	   			
-	   		}   		
+
+	   			
+	   		 }   		
 
           res.render("categoryChart.ejs" , {restaurant: restaurant, housing:housing, supermarkets:supermarkets, general:general, misc:misc});
         }
@@ -200,6 +203,49 @@ app.get("/categoryChart", function(req,res)
   	
 });
 
+
+//Get page with line graph by months
+app.get("/monthChart", function(req,res)
+{
+
+	user.find({username : req.user.username},function(err  , using)
+	{
+        if(err)
+        {
+         console.log("error") ;
+         console.log(err);
+        }
+        else
+        {
+            var expenseName = using[0].expenseName;
+       		var type = using[0].type;
+	   		var date = using[0].date;
+	   		var cost = using[0].cost;
+
+	   		
+	   		var total = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+	   		for (var i = 0; i<date.length ; i++) 
+	   		{
+	   			var string = date[i];
+	   			var parts = string.split("-");
+
+	   			var month = parts[1];
+	   			month = month-1;
+
+	   			total[month] = Number(cost[i]) + Number(total[month]);
+
+	   		 }   		
+
+          res.render("monthChart.ejs" , {total : total});
+        }
+
+     });
+
+
+
+
+})
 
 
 
