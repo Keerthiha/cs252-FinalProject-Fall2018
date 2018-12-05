@@ -262,7 +262,7 @@ app.post("/login", passport.authenticate("local",{
 
 } ),function(req,res){
 
-  res.redirect("/addExpenses");  
+  res.redirect("/showExpenses");  
  
 });
 
