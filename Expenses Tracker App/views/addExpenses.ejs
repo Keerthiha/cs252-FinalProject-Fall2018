@@ -65,16 +65,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     
     
 <body id="Expenses Form">
-<div class="w3-top w3-hide-small">
-  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
-    <a href="/showExpenses" class="w3-bar-item w3-button">Recorded Expenses</a>
-    <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+
+
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off ;" id="myNavbar">
+    <a href="/showExpenses" style= "font-family:Amatic SC, sans-serif ;" class="w3-bar-item w3-button">Recorded Expenses</a>
+    <a href="/logout" style= "font-family:Amatic SC, sans-serif ;" class="w3-bar-item w3-button right">Logout</a>
   </div>
-
 <div class="main-div">
-
-    <div class="panel">
-   </div>
+    <center><div class="panel">
+    <p>Please enter your Expense</p>
+   </div></center>
     <form id="Register" action="/addExpenses" method= "POST">
 
         <div class="form-group">
@@ -84,7 +84,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 
         </div>
         
-    <div class="form-group">
+    <center><div class="form-group">
         
         <select name="type">
             <option value="restaurant">Restaurant/Bars</option>
@@ -94,7 +94,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
             <option value="misc">Miscellaneous</option>
         </select>
         
-        </div>
+        </div></center>
         <div class="form-group">
 
             <input type="date" class="form-control" name="date" placeholder="Date of the  expense">
@@ -105,7 +105,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
             <input type="number" class="form-control" name="cost" placeholder="Cost of Expense">
         </div>
 
-        <button class="w3-btn w3-black" class="btn btn-primary" >Add Expense</button>
+        <center><button class="w3-btn w3-black" class="btn btn-primary" >Add Expense</button></center>
 
     </form>
 </div></div></div>

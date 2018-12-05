@@ -23,14 +23,14 @@
             <div class="collapse navbar-collapse" style="font-family:Marker Felt, fantasy;">
                 <ul class="nav navbar-nav navbar-right">
                 <li><a style="font-family:Marker Felt, fantasy;" href="/addExpenses">Record an Expense</a></li>
+                 <li><a style="font-family:Marker Felt, fantasy;" href="/categoryChart">Category Charts</a></li>
+                <li><a style="font-family:Marker Felt, fantasy;" href="/monthChart">Monthly Chart</a></li>
                   <% if(!currentUser){ %>
                         <li><a style="font-family:Marker Felt, fantasy;" href="/login">Login</a></li>
                         <li><a style="font-family:Marker Felt, fantasy;" href="/register">Sign Up</a></li>
                      <% } else { %>
                        <li><a  style="font-family:Marker Felt, fantasy;" href="#">Signed In As <%= currentUser.username %></a></li>
                         <li><a style="font-family:Marker Felt, fantasy;" href="/logout">Logout</a></li>
-                        <li><a style="font-family:Marker Felt, fantasy;" href="/categoryChart">Category Charts</a></li>
-                        <li><a style="font-family:Marker Felt, fantasy;" href="/monthChart">Monthly Chart</a></li>
                   <% } %>
                 </ul>
             </div>
