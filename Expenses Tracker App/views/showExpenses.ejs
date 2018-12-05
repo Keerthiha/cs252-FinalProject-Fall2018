@@ -58,7 +58,7 @@ body,html {
     background-size: cover;
 }
 table {
-  text-align: left;
+  text-align: center;
   line-height: 40px;
   border-collapse: separate;
   border-spacing: 0;
@@ -73,28 +73,34 @@ thead tr:first-child {
   color: #fff;
   border: none;
   font-family: "Amatic SC" , sans-serif;
+  text-align: center;
 }
 th:first-child,
 td:first-child {
   padding: 0 15px 0 20px;
   font-family: "Amatic SC" , sans-serif;
+  text-align: center;
 }
 thead tr:last-child th {
   border-bottom: 3px solid #ddd;
   font-family: "Amatic SC" , sans-serif;
+  text-align: center;
 }
 tbody tr:hover {
   background-color: #f2f2f2;
   cursor: default;
   font-family: "Amatic SC" , sans-serif;
+  text-align: center;
 }
 tbody tr:last-child td {
   border: none;
+  text-align: center;
 }
 tbody td {
   border-bottom: 1px solid #ddd;
   background: #FFFFFF ;
   font-family: "Amatic SC" , sans-serif;
+  text-align: center;
 }
 td:last-child {
   text-align: left;
@@ -102,6 +108,7 @@ td:last-child {
   font-family : "cursive" ;
   background: #FFFFFF ;
   font-family: "Amatic SC" , sans-serif;
+  text-align: center;
 }
 h1
 {
@@ -120,9 +127,85 @@ font-color: #000000;
 
 <head>
 <title>Recorded Expenses</title>
+
+
+
+
+<% 
+var j=f=mr=a=my=ju=jl=ag=s=o=n=d=0;
+
+for (var i = 0; i < expenseName.length; i++) 
+
+{ 
+      
+    
+  var string = date[i];
+  var parts = string.split("-");
+  if(parts[1] == '01')
+  {
+    j=1;
+  }
+  else if(parts[1] == '02')
+  {
+    f=1;
+  }
+  else if(parts[1] == '03')
+  {
+    mr=1;
+  }
+  else if(parts[1] == '04')
+  {
+    a=1;
+  }
+  else if(parts[1] == '05')
+  {
+    my=1;
+  }
+  else if(parts[1] == '06')
+  {
+    ju=1;
+  }
+  else if(parts[1] == '07')
+  {
+    jl=1;
+  }
+  else if(parts[1] == '08')
+  {
+    ag=1;
+  }
+  else if(parts[1] == '09')
+  {
+    s=1;
+  }
+  else if(parts[1] == '10')
+  {
+    o=1;
+  }
+  else if(parts[1] == '11')
+  {
+    n=1;
+  }
+  else if(parts[1] == '12')
+  {
+    d=1;
+  }
+    
+  
+} 
+
+%> 
+
+
+
 <center><h2 style="font-family:Amatic SC , sans-serif ; color: #000000" >Recorded Expenses</h2></center>
 </head>
 <br><br>
+
+
+
+
+
+<%if(j==1) { %>
 <body>
   <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">January</h4></center>
   <table>
@@ -132,6 +215,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -147,14 +231,26 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
 
+<% } %>
 
 
+
+<%if(f==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">February</h4></center>
   <table>
     <thead>
@@ -163,6 +259,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -178,14 +275,25 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
+<% } %>
 
 
 
+<%if(mr==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">March</h4></center>
   <table>
     <thead>
@@ -194,6 +302,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -209,14 +318,23 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 </tbody>
 </table>
+<% } %>
 
 
-
-
+<%if(a==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">April</h4></center>
   <table>
     <thead>
@@ -225,6 +343,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -240,14 +359,23 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 </tbody>
 </table>
+<% } %>
 
 
-
-
+<%if(my==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">May</h4></center>
   <table>
     <thead>
@@ -256,6 +384,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -271,14 +400,24 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
+<% } %>
 
 
-
+<%if(ju==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">June</h4></center>
   <table>
     <thead>
@@ -287,6 +426,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -302,15 +442,25 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
+<% } %>
 
 
 
-
+<%if(jl==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">July</h4></center>
   <table>
     <thead>
@@ -319,6 +469,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -334,14 +485,25 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
+<% } %>
 
 
 
+<%if(ag==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">August</h4></center>
   <table>
     <thead>
@@ -350,6 +512,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -365,15 +528,25 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
+<% } %>
 
 
 
-
+<%if(s==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">September</h4></center>
   <table>
     <thead>
@@ -382,6 +555,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -397,15 +571,25 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
+<% } %>
 
 
 
-
+<%if(o==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">October</h4></center>
   <table>
     <thead>
@@ -414,6 +598,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -429,15 +614,24 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
+<% } %>
 
 
-
-
+<%if(n==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">November</h4></center>
   <table>
     <thead>
@@ -446,6 +640,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -461,15 +656,24 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
+<% } %>
 
 
-
-
+<%if(d==1) { %>
 <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">December</h4></center>
   <table>
     <thead>
@@ -478,6 +682,7 @@ font-color: #000000;
         <th>Type of Expense</th>
         <th>Date</th>
         <th>Amount Spent</th>
+        <th>Delete Expense</th>
       </tr>
     </thead>
   <tbody>
@@ -493,11 +698,21 @@ font-color: #000000;
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
       <td>$<%= cost[i] %></td>
+      <td>
+        <form action="/showExpenses" method= "POST">
+          <input type="hidden" name="expenseName" value= "<%= expenseName[i]%>" >
+          <input type="hidden" name="type" value= "<%= type[i]%>" >
+          <input type="hidden" name="date" value= "<%= date[i]%>" >
+          <input type="hidden" name="cost" value= "<%= cost[i]%>" >
+          <button class="w3-btn w3-black" class="btn btn-primary">Delete Expense</button>
+        </form>
+      </td>
     </tr>    
    <% }} %> 
 
 </tbody>
 </table>
+<% } %>
 
 
 </body>

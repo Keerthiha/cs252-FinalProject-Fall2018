@@ -324,6 +324,35 @@ app.post("/addExpenses", isLoggedIn, function(req,res)
 }) ;
 
 
+app.post("/showExpenses", isLoggedIn, function(req,res)
+{
+
+    expenseName = req.body.expenseName;
+    type = req.body.type;
+    date = req.body.date;
+    cost = req.body.cost;
+
+
+         user.update({username : req.user.username}  , {$pull: {expenseName:expenseName, type:type, date:date, cost:cost}}, function(err,numberAffected , rawResponse){
+            if(err)
+            {
+                console.error("error!") ;
+                console.error(err) ;
+
+            }
+
+        }) ;
+
+
+
+
+    console.log("going to redirect");
+        res.redirect("/showExpenses");
+       
+
+}) ;
+
+
 
 
 
