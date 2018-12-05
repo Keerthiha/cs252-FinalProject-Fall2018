@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>Favourites</title>
+        <title>Expenses</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
@@ -49,7 +49,7 @@
 }
 body,html {
   font-family: "Marker Felt", fantasy;
-    height: 100%;
+    height: 400%;
     margin: 0;
     background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); 
     background-repeat: no-repeat;
@@ -104,17 +104,25 @@ td:last-child {
 h1
 {
 font-family: "Marker Felt", fantasy;
-  font-size: 50px ;
+font-color: #000000;
+font-size: 50px ;
+}
+
+h4
+{
+font-family: "Marker Felt", fantasy;
+font-color: #000000;
 }
 </style>
 
 
 <head>
 <title>Recorded Expenses</title>
-<center><h1>Recorded Expenses</h1></center>
+<center><h2 style="font-family:Marker Felt, fantasy; color: #000000" >Recorded Expenses</h2></center>
 </head>
-
+<br><br>
 <body>
+  <center><h4 style="font-family:Marker Felt, fantasy; color: #000000">January</h4></center>
   <table>
     <thead>
       <tr>
@@ -128,15 +136,367 @@ font-family: "Marker Felt", fantasy;
 
 <% for (var i = 0; i < expenseName.length; i++) { %>
     <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '01'){
+      %>
       <td><%= expenseName[i] %></td>
       <td><%= type[i] %></td>
       <td><%= date[i] %></td>
-      <td><%= cost[i] %></td>
+      <td>$<%= cost[i] %></td>
     </tr>    
-   <% } %> 
+   <% }} %> 
 
 </tbody>
 </table>
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">February</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '02'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+
+</tbody>
+</table>
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">March</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '03'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+</tbody>
+</table>
+
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">April</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '04'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+</tbody>
+</table>
+
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">May</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '05'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+
+</tbody>
+</table>
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">June</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '06'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+
+</tbody>
+</table>
+
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">July</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '07'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+
+</tbody>
+</table>
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">August</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '08'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+
+</tbody>
+</table>
+
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">September</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '09'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+
+</tbody>
+</table>
+
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">October</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '10'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+
+</tbody>
+</table>
+
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">November</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '11'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+
+</tbody>
+</table>
+
+
+
+
+<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">December</h4></center>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of the Expense</th>
+        <th>Type of Expense</th>
+        <th>Date</th>
+        <th>Amount Spent</th>
+      </tr>
+    </thead>
+  <tbody>
+
+<% for (var i = 0; i < expenseName.length; i++) { %>
+    <tr>
+      <%
+        var string = date[i];
+        var parts = string.split("-");
+        if(parts[1] == '12'){
+      %>
+      <td><%= expenseName[i] %></td>
+      <td><%= type[i] %></td>
+      <td><%= date[i] %></td>
+      <td>$<%= cost[i] %></td>
+    </tr>    
+   <% }} %> 
+
+</tbody>
+</table>
+
 
 </body>
 </html>
