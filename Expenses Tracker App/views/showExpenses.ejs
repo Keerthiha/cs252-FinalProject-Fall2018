@@ -6,10 +6,12 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
         <style type="text/css">
           a
           {
-            font-family : "Marker Felt", fantasy; ;
+            font-family : "Amatic SC", sans-serif ;
             font-size: 20px ;
           }
         </style>
@@ -18,19 +20,19 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" style="font-family:Marker Felt, fantasy;" href="/">Expenses Tracker</a>
+                <a class="navbar-brand" style="font-family:Amatic SC , sans-serif;" href="/">Expenses Tracker</a>
             </div>
-            <div class="collapse navbar-collapse" style="font-family:Marker Felt, fantasy;">
+            <div class="collapse navbar-collapse" style="font-family:Amatic SC , sans-serif ;">
                 <ul class="nav navbar-nav navbar-right">
-                <li><a style="font-family:Marker Felt, fantasy;" href="/addExpenses">Record an Expense</a></li>
-                 <li><a style="font-family:Marker Felt, fantasy;" href="/categoryChart">Category Charts</a></li>
-                <li><a style="font-family:Marker Felt, fantasy;" href="/monthChart">Monthly Chart</a></li>
+                <li><a style="font-family:Amatic SC , sans-serif;" href="/addExpenses">Record an Expense</a></li>
+                 <li><a style="font-family:Amatic SC , sans-serif;" href="/categoryChart">Category Charts</a></li>
+                <li><a style="font-family:Amatic SC , sans-serif;" href="/monthChart">Monthly Chart</a></li>
                   <% if(!currentUser){ %>
-                        <li><a style="font-family:Marker Felt, fantasy;" href="/login">Login</a></li>
-                        <li><a style="font-family:Marker Felt, fantasy;" href="/register">Sign Up</a></li>
+                        <li><a style="font-family:Amatic SC , sans-serif;" href="/login">Login</a></li>
+                        <li><a style="font-family:Amatic SC , sans-serif;" href="/register">Sign Up</a></li>
                      <% } else { %>
-                       <li><a  style="font-family:Marker Felt, fantasy;" href="#">Signed In As <%= currentUser.username %></a></li>
-                        <li><a style="font-family:Marker Felt, fantasy;" href="/logout">Logout</a></li>
+                       <li><a  style="font-family:Amatic SC , sans-serif;" href="#">Signed In As <%= currentUser.username %></a></li>
+                        <li><a style="font-family:Amatic SC , sans-serif;" href="/logout">Logout</a></li>
                   <% } %>
                 </ul>
             </div>
@@ -44,11 +46,11 @@
 {
   margin: 0;
   padding: 0;
-  font-family: "Marker Felt", fantasy;
+  font-family: "Amatic SC" , sans-serif;
   box-sizing: border-box;
 }
 body,html {
-  font-family: "Marker Felt", fantasy;
+  font-family: "Amatic SC" , sans-serif;
     height: 400%;
     margin: 0;
     background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); 
@@ -64,27 +66,27 @@ table {
   width: 500px;
   margin: 50px auto;
   border-radius: .25rem;
-  font-family: "Marker Felt", fantasy;
+  font-family: "Amatic SC" , sans-serif;
 }
 thead tr:first-child {
   background: #000000;
   color: #fff;
   border: none;
-  font-family: "Marker Felt", fantasy;
+  font-family: "Amatic SC" , sans-serif;
 }
 th:first-child,
 td:first-child {
   padding: 0 15px 0 20px;
-  font-family: "Marker Felt", fantasy;
+  font-family: "Amatic SC" , sans-serif;
 }
 thead tr:last-child th {
   border-bottom: 3px solid #ddd;
-  font-family: "Marker Felt", fantasy;
+  font-family: "Amatic SC" , sans-serif;
 }
 tbody tr:hover {
   background-color: #f2f2f2;
   cursor: default;
-  font-family: "Marker Felt", fantasy;
+  font-family: "Amatic SC" , sans-serif;
 }
 tbody tr:last-child td {
   border: none;
@@ -92,25 +94,25 @@ tbody tr:last-child td {
 tbody td {
   border-bottom: 1px solid #ddd;
   background: #FFFFFF ;
-  font-family: "Marker Felt", fantasy;
+  font-family: "Amatic SC" , sans-serif;
 }
 td:last-child {
   text-align: left;
   padding-left: 10px;
   font-family : "cursive" ;
   background: #FFFFFF ;
-  font-family: "Marker Felt", fantasy;
+  font-family: "Amatic SC" , sans-serif;
 }
 h1
 {
-font-family: "Marker Felt", fantasy;
+font-family: "Amatic SC" , sans-serif;
 font-color: #000000;
 font-size: 50px ;
 }
 
 h4
 {
-font-family: "Marker Felt", fantasy;
+font-family: "Amatic SC" , sans-serif;
 font-color: #000000;
 }
 </style>
@@ -118,11 +120,11 @@ font-color: #000000;
 
 <head>
 <title>Recorded Expenses</title>
-<center><h2 style="font-family:Marker Felt, fantasy; color: #000000" >Recorded Expenses</h2></center>
+<center><h2 style="font-family:Amatic SC , sans-serif ; color: #000000" >Recorded Expenses</h2></center>
 </head>
 <br><br>
 <body>
-  <center><h4 style="font-family:Marker Felt, fantasy; color: #000000">January</h4></center>
+  <center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">January</h4></center>
   <table>
     <thead>
       <tr>
@@ -153,7 +155,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">February</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">February</h4></center>
   <table>
     <thead>
       <tr>
@@ -184,7 +186,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">March</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">March</h4></center>
   <table>
     <thead>
       <tr>
@@ -215,7 +217,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">April</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">April</h4></center>
   <table>
     <thead>
       <tr>
@@ -246,7 +248,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">May</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">May</h4></center>
   <table>
     <thead>
       <tr>
@@ -277,7 +279,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">June</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">June</h4></center>
   <table>
     <thead>
       <tr>
@@ -309,7 +311,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">July</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">July</h4></center>
   <table>
     <thead>
       <tr>
@@ -340,7 +342,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">August</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">August</h4></center>
   <table>
     <thead>
       <tr>
@@ -372,7 +374,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">September</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">September</h4></center>
   <table>
     <thead>
       <tr>
@@ -404,7 +406,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">October</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">October</h4></center>
   <table>
     <thead>
       <tr>
@@ -436,7 +438,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">November</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">November</h4></center>
   <table>
     <thead>
       <tr>
@@ -468,7 +470,7 @@ font-color: #000000;
 
 
 
-<center><h4 style="font-family:Marker Felt, fantasy; color: #000000">December</h4></center>
+<center><h4 style="font-family:Amatic SC , sans-serif ; color: #000000">December</h4></center>
   <table>
     <thead>
       <tr>
